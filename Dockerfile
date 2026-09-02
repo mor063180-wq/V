@@ -52,9 +52,7 @@ backend = auto
 JAILEOF
 
 # --- Automatic security updates ---
-RUN echo 'Unattended-Upgrade::Allowed-Origins {
-    "${distro_id}:${distro_codename}-security";
-};' > /etc/apt/apt.conf.d/51unattended-upgrades-security
+RUN printf '%s\n' 'Unattended-Upgrade::Allowed-Origins {' '    "${distro_id}:${distro_codename}-security";' '};' > /etc/apt/apt.conf.d/51unattended-upgrades-security
 
 EXPOSE 22
 
