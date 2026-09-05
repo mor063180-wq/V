@@ -24,7 +24,7 @@ RUN wget https://dot.net/v1/dotnet-install.sh -O /tmp/dotnet-install.sh && \
 
 RUN mkdir -p /run/sshd
 RUN useradd -m -s /bin/bash learner && \
-    echo 'learner:changeme123' | chpasswd && \
+    echo 'root:changeme123' | chpasswd && \
     usermod -aG sudo learner
 RUN sed -i 's/^#\?PermitRootLogin .*/PermitRootLogin yes/' /etc/ssh/sshd_config && \
     sed -i 's/^#\?PasswordAuthentication .*/PasswordAuthentication yes/' /etc/ssh/sshd_config
